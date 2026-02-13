@@ -7,7 +7,7 @@ set -e
 
 INSTALL_DIR="/home/pi/inky-photo-frame"
 BACKUP_DIR="/home/pi/.inky-backups"
-GITHUB_RAW="https://raw.githubusercontent.com/mehdi7129/inky-photo-frame/main"
+GITHUB_RAW="https://raw.githubusercontent.com/gleason21/inky-photo-frame/main"
 
 # Colors
 GREEN='\033[0;32m'
