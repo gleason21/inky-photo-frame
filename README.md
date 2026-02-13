@@ -77,7 +77,7 @@ The Inky Impression has 4 physical buttons on the side for interactive control:
 
 ### One-Line Install
 ```bash
-curl -sSL https://raw.githubusercontent.com/mehdi7129/inky-photo-frame/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/gleason21/inky-photo-frame/main/install.sh | bash
 ```
 
 That's it! The installer handles everything:
