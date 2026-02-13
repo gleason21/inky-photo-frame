@@ -59,7 +59,7 @@ except ImportError:
 PHOTOS_DIR = Path('/home/pi/Images')
 HISTORY_FILE = Path('/home/pi/.inky_history.json')
 COLOR_MODE_FILE = Path('/home/pi/.inky_color_mode.json')
-CHANGE_HOUR = 5  # Daily change hour (5AM)
+CHANGE_HOUR = 1  # Change every # hour(s)
 LOG_FILE = '/home/pi/inky_photo_frame.log'
 MAX_PHOTOS = 1000  # Maximum number of photos to keep (auto-delete oldest)
 VERSION = "1.1.7"
@@ -997,7 +997,7 @@ class InkyPhotoFrame:
             logging.error(f'Error saving color mode: {e}')
 
     def should_change_photo(self):
-        """Check if it's time for daily photo change"""
+        """Check if it's time for photo change"""
         now = datetime.now()
 
         # Check if we've never changed
@@ -1008,7 +1008,7 @@ class InkyPhotoFrame:
         last_change = datetime.fromisoformat(self.history['last_change'])
 
         # Check if it's past CHANGE_HOUR and we haven't changed today
-        if now.hour >= CHANGE_HOUR and last_change.date() < now.date():
+        if now.hour >= (last_change.hour + CHANGE_HOUR) or last_change.date() < now.date():
             return True
 
         return False
@@ -1024,7 +1024,7 @@ class InkyPhotoFrame:
             return
 
         if self.should_change_photo():
-            logging.info('Time for daily photo change')
+            logging.info('Time for photo change')
             self.change_photo()
         elif self.history['current']:
             # Just display current (useful after reboot)
@@ -1037,7 +1037,7 @@ class InkyPhotoFrame:
 
     def run(self):
         """Main loop with file watching"""
-        logging.info(f'⏰ Daily change time: {CHANGE_HOUR:02d}:00')
+        logging.info(f'⏰ Photo change interval: Every {CHANGE_HOUR} hour(s)')
         logging.info(f'📁 Watching folder: {PHOTOS_DIR}')
         logging.info(f'🗄️ Storage limit: {MAX_PHOTOS} photos (auto-cleanup enabled)')
 
