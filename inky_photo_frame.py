@@ -211,7 +211,7 @@ class ButtonController:
     Handles 4 GPIO buttons for photo frame control
     - Button A (GPIO 5): Next photo
     - Button B (GPIO 6): Previous photo
-    - Button C (GPIO 16): Cycle color modes
+    - Button C (GPIO 25): Cycle color modes
     - Button D (GPIO 24): Reset to pimoroni mode
     """
     def __init__(self, photo_frame):
@@ -222,7 +222,7 @@ class ButtonController:
         try:
             self.button_a = Button(5, bounce_time=0.02)  # Next photo
             self.button_b = Button(6, bounce_time=0.02)  # Previous photo
-            self.button_c = Button(16, bounce_time=0.02)  # Cycle color mode
+            self.button_c = Button(25, bounce_time=0.02)  # Cycle color mode
             self.button_d = Button(24, bounce_time=0.02)  # Reset color mode
 
             # Attach handlers
@@ -231,7 +231,7 @@ class ButtonController:
             self.button_c.when_pressed = self._on_button_c
             self.button_d.when_pressed = self._on_button_d
 
-            logging.info('✅ Button controller initialized (GPIO 5,6,16,24)')
+            logging.info('✅ Button controller initialized (GPIO 5,6,25,24)')
         except Exception as e:
             logging.warning(f'⚠️ Could not initialize buttons: {e}')
 
