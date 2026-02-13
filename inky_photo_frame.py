@@ -70,7 +70,7 @@ VERSION = "1.1.7"
 #   'spectra_palette' - Direct mapping to calibrated 6-color Spectra palette
 #   'warmth_boost'    - Aggressive RGB warmth adjustments
 # NOTE: COLOR_MODE is now dynamically changeable at runtime via buttons or methods
-COLOR_MODE = 'spectra_palette'  # Default color mode (can be changed at runtime)
+COLOR_MODE = 'warmth_boost'  # Default color mode (can be changed at runtime)
 
 # Pimoroni defaults
 SATURATION = 0.5  # Pimoroni default saturation (matches official behavior)
