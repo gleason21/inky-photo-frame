@@ -36,7 +36,7 @@ echo ""
 if [ ! -d "$INSTALL_DIR" ]; then
     print_error "Installation directory not found: $INSTALL_DIR"
     echo "Please run the installer first:"
-    echo "  curl -sSL https://raw.githubusercontent.com/mehdi7129/inky-photo-frame/main/install.sh | bash"
+    echo "  curl -sSL https://raw.githubusercontent.com/gleason21/inky-photo-frame/main/install.sh | bash"
     exit 1
 fi
 
