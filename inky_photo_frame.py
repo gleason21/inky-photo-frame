@@ -1029,7 +1029,7 @@ class InkyPhotoFrame:
         elif self.history['current']:
             # Just display current (useful after reboot)
             logging.info('Displaying current photo after startup')
-            self.display_photo(self.history['current'])
+            #self.display_photo(self.history['current'])
         else:
             # No current photo, pick one
             logging.info('No current photo, selecting one')
