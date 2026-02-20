@@ -1008,7 +1008,7 @@ class InkyPhotoFrame:
         last_change = datetime.fromisoformat(self.history['last_change'])
 
         # Check if it's past CHANGE_HOUR and we haven't changed today
-        if (now.hour >= (last_change.hour + CHANGE_HOUR) or last_change.date() < now.date()) and 7 <= now.hour >= 22:
+        if (now.hour >= (last_change.hour + CHANGE_HOUR) or last_change.date() < now.date()) and 7 <= now.hour <= 22:
             return True
 
         return False
